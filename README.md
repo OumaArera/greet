@@ -1,6 +1,3 @@
-
-
-```markdown
 # Greeting App
 
 This is a simple Flask web application that displays a greeting message based on the user's input and the current time of day. The app uses Docker Compose to run both the Flask app and a Redis instance.
@@ -54,6 +51,7 @@ This command will build the Docker images and start the containers for the Flask
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
 ## Developer
+
 This project has been developed by John Ouma alias Ouma Arera
 
 ## License
