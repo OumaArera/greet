@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Greeting App</title>
+    <style>
+      #greetButton {
+        background-color: gold;
+        border: none;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      #greeting {
+        font-size: 1.5vw;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Greeting App</h1>
+    <button id="greetButton">Greet Me</button>
+    <div id="greeting"></div>
+
+    <script>
+      const greetButton = document.getElementById('greetButton');
+      const greetingDiv = document.getElementById('greeting');
+
+      greetButton.addEventListener('click', async () => {
+        const name = prompt('What is your name?');
+        if (name) {
+          const response = await fetch('/greet', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name })
+          });
+          const data = await response.json();
+          greetingDiv.innerHTML = data.greeting;
+        }
+      });
+    </script>
+  </body>
+</html>
